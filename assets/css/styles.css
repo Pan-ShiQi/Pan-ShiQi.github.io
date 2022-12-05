@@ -230,12 +230,12 @@ a:before, a:after {
 
 #headerwrap {
 	background: url(../img/header_bg.jpg) no-repeat center top;
-	margin-top: -50px;
-	padding-top: 120px;
+	margin-top: 90px;
+	padding-top: 195px;
 	text-align: center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 850px;
+	min-height: 490px;
 	width: 100%;
 	-webkit-background-size: 100%;
 	-moz-background-size: 100%;

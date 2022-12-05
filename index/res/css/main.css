@@ -1,16 +1,3 @@
-/**
- 
- @Name: layuiSimpleBlog - 极简博客模板
- @Author: xuzhiwen
- @Copyright: layui.com
- 
- */
-
-
-/*end-menu-btn*/
-
-
-
 body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif; overflow-x: hidden;}
 .w1000{max-width: 1000px!important; margin:0 auto;}
 .header{height: 120px; line-height: 120px; position: relative; font-size: 16px;}
@@ -24,7 +11,7 @@ body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-se
 .header .header-down-nav{display: none;}
 
 
-.banner{height: 600px; width: 100%; background: url(../../html/banner.jpg) no-repeat; background-size:cover;}
+.banner{height: 100%; width: 100%; background: url(../../html/banner.jpg) no-repeat; background-size:cover;}
 .banner .cont{position: relative;}
 .banner .title{color: #fff; position: absolute; top: 152px; left: 0;}
 .banner .title h3{font-size: 80px; line-height: 88px;}

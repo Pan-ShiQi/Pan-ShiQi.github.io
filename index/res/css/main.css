@@ -1,6 +1,6 @@
 body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif; overflow-x: hidden;}
 .w1000{max-width: 1000px!important; margin:0 auto;}
-.header{height: 120px; line-height: 120px; position: relative; font-size: 16px;}
+.header{height: 120px; line-height: 115px; position: relative; font-size: 16px;}
 .header .logo,.header .welcome-text,.header .nav{position: absolute; top: 0;}
 .header .logo{left: 65px;}
 .header .logo span{display: none;}
@@ -222,7 +222,7 @@ body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-se
   .menu.on:after { bottom: 17px; -webkit-transform: rotate(135deg); transform: rotate(135deg); }
   .menu-btn{position: absolute; top: 40px; right: 20px;}
   .header .header-down-nav { width: 100%; position: absolute; top: 120px; z-index: 2; left: 0; padding: 0; border-radius: 0;}
-  .header .header-down-nav {background: #ff7f21;}
+  .header .header-down-nav {background: #9370DB;}
   .header .header-down-nav .layui-nav-item a{padding:0 40px;}
   .header .header-down-nav li {display: block;}
   .header .header-down-nav li a{font-size: 16px;}

@@ -4,8 +4,8 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8" />
-    <title>DES算法详解--qwp</title>
-    <meta name="keywords" content="qwp,QWP,qwpblog,blog,qwp博客,QWP博客,博客,DES,DES算法,DES算法详解" />
+    <title>道德的讲座--qwp</title>
+    <meta name="keywords" content="qwp,QWP,qwpblog,blog,qwp博客,QWP博客,博客,道德,道德的讲座" />
     <meta
       name="description"
       content="阿潘的博客，记录个人生活、成长经历、心路历程"
@@ -35,6 +35,15 @@
   </head>
 
   <body id="top">
+    <!-- music
+    ================================================== -->
+    <audio 
+	    autoplay="autoplay"
+   	  controls="controls"
+  	  loop="loop"
+  	  preload="auto"
+  	  src="music/我爱你.mp3">
+    </audio>
     <!-- preloader
     ================================================== -->
     <div id="preloader">
@@ -102,118 +111,101 @@
       <div class="row">
         <div class="column large-12">
           <article class="s-content__entry format-standard">
+            <div class="s-content__media">
+              <div class="s-content__post-thumb">
+                <img
+                  src="images/slide3-bg-3000.jpg"
+                  srcset="
+                    images/thumbs/single/single-post-2100.jpg 2100w,
+                    images/thumbs/single/single-post-1050.jpg 1050w,
+                    images/thumbs/single/single-post-525.jpg   525w
+                  "
+                  sizes="(max-width: 2100px) 100vw, 2100px"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!-- end s-content__media -->
+
             <div class="s-content__entry-header">
               <h2 class="s-content__title s-content__title--post">
-                DES算法详解
+                道德的讲座
               </h2>
-              <h5 class="s-content__title s-content__title--post">
-                qwp--2024.9.26
-              </h5>
+              <h3 class="s-content__title s-content__title--post">
+                qwp--2024.8.3
+              </h3>
             </div>
             <!-- end s-content__entry-header -->
 
             <div class="s-content__primary">
               <div class="s-content__entry-content">
-                <!-- DES算法简介 -->
+                <p class="s-content__title s-content__title--post">
+                  “上帝已经死了，那些妄图以虚假崇高名义继续蒙蔽我们双眼的，是牧羊人，是旧时代的掘墓者，是背后世界论者……所以我的鹰与蛇将同我下降，直至我与“我”的知己一同回归。”
+                </p>
+                <p style="text-align: right">——qwp 2024.8.3</p>
                 <p style="text-indent: 2em">
-                  DES（Data Encryption Standard）是一种对称加密算法，由IBM研发，分组加密（将密码分组进行加密），64位密钥，56位为运算，8位校验。（8，16，24，32，40，48，56，64）
+                  曾有位智者，他能将所有的道德作为理所应当，把所行之事作为必须的负担，教听众行事犹如退化后的骆驼，俯下身子，甘愿任人宰割；
+                  也曾有位愚者，他传授听众判决既定的命运，面对理所应当的义务坚定说“不”，高下立判成为过去，而今已然成为雄狮……
                 </p>
-                <!-- DES算法大体流程图 -->
-                <img src="images/NetSc—DES/1.png">
-                <!-- 1.0 初始置换 -->
-                <h4>IP初始置换</h4>
                 <p style="text-indent: 2em">
-                  首先，我们从IP置换开始，按照初始置换置换表中，每个格子的数字对应的原始数据表格的位置，置换到该数字所在的方格
-                  （也就是如：在原始数据中第58个位置的二进制数，置换到第一个格子，也就是置换后的表。58_0—1，50_0—2，42_0—3…以此类推，
-                  其中58是初始置换置换表的第一个格子的数，0是原始数据中的58个格子的数，1是修改后的所在格子）
+                  但孩童，他怎知何为是非对错，你若问他：“遇难者不救，是否有违道德？”他不知…
                 </p>
-                <img src="images/NetSc—DES/2.png">
-                <!-- 2.0 分组32，赋值，进行轮函数（K密钥的生成） -->
                 <p style="text-indent: 2em">
-                  其次，就是将置换后的64位数据进行分组为L0(32)和R0(32)，并生成密钥K1<a href="#密钥生成">（密钥生成）</a>，将R0的数据赋值给L1，同时将R0和K1进行<a href="#E扩展">E扩展</a>、
-                  <a href="#异或">异或</a>、<a href="#S盒置换">S盒置换</a>、<a href="#P盒置换">P盒置换</a>，生成轮密钥/子密钥，重复16轮（同时生成16个K，下述讲解）。
+                  你若问他：“践踏他人者，是否有违道德？”他还不知…
                 </p>
-                <!-- 2.1 16轮函数 -->
-                <h4>16轮函数</h4>
-                <p style="text-indent: 2em" id="E扩展">
-                  E扩展：将32位二进制对应的格子数进行扩展，如32、01、02、03、04、05（其规律就是在一组4位的前后添加连续的数字，01前是32，32后是01）
-                </p>
-                <img src="images/NetSc—DES/3.png">
-                <img src="images/NetSc—DES/4.png">
-                <p style="text-indent: 2em" id="异或">
-                  异或：当前轮次的子密钥Ki与拓展的48位E扩展结果进行异或运算。运算结果会作为接下来S盒替换的输入
-                </p>
-                <p style="text-indent: 2em" id="S盒置换">
-                  S盒（根据此表置换）：S盒也是一种置换表。在DES的每一轮计算中S盒都是不一样的。
-                  这里我以第一轮计算中的S盒为例。从下图中我们看到，S盒内部有8个S块，记作S1-S8。
-                  每个S块都会接收6位字符作为输入并输出四位字符。这里我们以第一个S盒S1为例。
-                </p>
-                <p style="text-indent: 2em" id="S盒置换">
-                  输入101010到S1中。S1会将这六位的第一位和第六位拿出来10作为S1的行，中间四位0101拿出来作为S1的列。
-                  我们转换成十进制，此时映射到这个S盒的位置就是(2,5)对应S盒的第3行第6列（索引都从0开始数）。
-                  将6转化为二进制，结果就为：S1(101010)=0110
-                </p>
-                <img src="images/NetSc—DES/6.png">
-                <img src="images/NetSc—DES/5.png">
-                <p style="text-indent: 2em" id="P盒置换">
-                  P盒置换：P盒置换就是将S盒置换的32位输出作为输入，经过下图固定的替换表进行替换后即为最后F轮函数的结果。
-                </p>
-                <img src="images/NetSc—DES/7.png">
-                <!-- 2.2 密钥Ki的生成 -->
-                <h4 id="密钥生成">Ki密钥的生成</h4>
                 <p style="text-indent: 2em">
-                  DES算法采用了每轮子密钥生成的方式来增加密钥的复杂性和安全性。
-                  每轮子密钥都是由主密钥（64位）通过密钥调度算法（Key Schedule Algorithm）生成的。
-                  DES算法的密钥调度算法可以将64位的主密钥分成16个子密钥，每个子密钥48位，用于每轮加密中与输入数据进行异或运算。
-                  通过子密钥生成的流程图来看下整个过程。
-                </p>
-                <img src="images/NetSc—DES/8.png">
-                <!-- 2.2.0 置换选择1、分组28 -->
-                <p style="text-indent: 2em">
-                  1、将64位主密钥经过置换选择1（Permuted Choice 1简写为PC-1）后输出了56位，将其分为左右两个28位的数据块，分别记为C0和D0。
-                  同上面我们讲过的置换规则一样，PC-1置换函数也是一个固定的置换表（下图）。
-                </p>
-                <img src="images/NetSc—DES/9.png">
-                <!-- 2.2.1 左移操作 -->
-                <p style="text-indent: 2em">
-                  2、对C0和D0进行循环左移操作。循环左移完成后生成C1和D1。因此，在16个轮次的计算当中会得到16个32位的数据块C1-C16和D1-D16。在DES中循环左移也有固定的规则。
+                  你若问他：“背信弃义者，是否有违道德？”他更不知…
                 </p>
                 <blockquote>
                   <p>
-                    i=1，2，…，16，对于Ci和Di，当i为1、2、9或16，则循环左移一位，否则循环左移两位。
+                    孩子是纯洁的，是遗忘，是一个新的开始，一个游戏，一个自转的车轮，一个肇事的运动，一个神圣的肯定。
                   </p>
-                  <cite>DES算法详解--2024.9.26</cite>
+                  <cite>查拉图斯特拉如是说--2024.8.3</cite>
                 </blockquote>
-                <!-- 2.2.2 再置换选择2 -->
                 <p style="text-indent: 2em">
-                  3、 对于C1，D1，将它们经过置换选择2（Permuted Choice 2 简写位PC-2）后，得到48位的子密钥K1，
-                  用于每轮加密中与输入数据进行异或运算。PC-2置换的输入是由PC-1置换生成的56位的密钥，而它的输出是48位的子密钥。
-                  PC-2置换将56位的密钥重新排列，丢弃了8位并选取（注意，是选取！而不是丢弃）了其中的48位作为子密钥。PC-2的置换规则如下（每次输入的值都是轮换后经过左移操作的表，
-                  经过PC-2后是不一样的，所以PC-2并非随机表，而是固定的）：
+                  但孩童啊，他的心大底是清而明的，是权衡利弊的。当他真正胜过自己内心不偏不倚时，智者和愚者都将消失。是的，到那时我也将沉静的走上山去，去往内心的那片净土，独享久违的孤独。
                 </p>
-                <img src="images/NetSc—DES/10.png">
                 <p style="text-indent: 2em">
-                  即PC-2置换表的第一行表示选择了输入密钥中的第14、17、11、24、1和5位，并将它们作为输出子密钥的前6位。以此类推…
+                  最后的最后，智者成为了愚者，而愚者成为了我。
+                  在回去的路上，恍惚间，人群中有人大声地叫到：“他说的是对的！上帝真的死了！我们今后只能依靠我们的大地！”
+                  我不以为然，这是他们应该知道的，而不是后知后觉。
+                  我的同情也从未消散，因为我怜悯那些奴隶之人，他们将自己的大理约束在小理之上，被可憎的牧羊人夺取，被牧犬和创造祂的人一一欺骗。
+                  我继续沉默地向山上走去，让他们其中的“我”代我向你们传以超人之思。
                 </p>
-                <!-- 2.2.3 得出密钥Ki -->
+                <blockquote>
+                  <p>
+                    你就这样结结巴巴地说：“这是我的善，我爱它，它是完全如此使我满意，我就是要单独这种善。”
+                  </p>
+                  <p>
+                    “我要它，并不想当它是一位神的律法，我要它，并不想当它是人间的规章、人间的必需品：对于我，我不要它成为指向超越大地之世界和天上乐园的路标。”
+                  </p>
+                  <p>
+                    “我爱它，它是世上的道德：在它里面没有多少聪明，更没有多少万人共通的理性。”
+                  </p>
+                  <p>
+                    “可是，这只鸟儿啊！到我这里来做巢：因此我爱它，抱它，————现在，它在我这里孵它的金蛋”
+                  </p>
+                  <p>
+                    你应当这样，像这样结结巴巴地赞美你的道德。
+                  </p>
+                  <cite>查拉图斯特拉如是说--2024.8.3</cite>
+                </blockquote>
                 <p style="text-indent: 2em">
-                  4、至此，经过PC-2后的结果就是我们当前轮次的子密钥K1了。在整个DES加密过程中会生成16个48位子密钥K1-K16，
-                  分别用于DES算法中的16轮加密过程，从而保证每轮加密所使用的密钥都是不同的，增加了破解的难度。
+                  查拉图斯特拉如是说。
                 </p>
-                <!-- 2.3 逆置换 -->
-                <h4>逆置换</h4>
-                <p style="text-indent: 2em">
-                  经过初始置换、16轮函数后，再经过逆置换，DES算法就大功告成（具体下图，操作参考初始置换）：
-                </p>
-                <img src="images/NetSc—DES/11.png">
+                <!--
                 <pre><code class="language-css">
-                  code C {
-                      include "stdio.h"
-                      int main(){
-                        printf("菜就多练！");
-                      }
-                  }
-              </code></pre>
+    code {
+        font-size: 1.4rem;
+        margin: 0 .2rem;
+        padding: .2rem .6rem;
+        white-space: nowrap;
+        background: #F1F1F1;
+        border: 1px solid #E1E1E1;	
+        border-radius: 3px;
+    }
+</code></pre>
+-->
               </div>
               <!-- end s-entry__entry-content -->
               <div class="s-content__entry-meta">
@@ -243,13 +235,13 @@
               <!-- s-content__entry-meta -->
               <div class="s-content__pagenav">
                 <div class="prev-nav">
-                  <a href="道德的讲座.html" rel="prev">
+                  <a href="入党申请书.html" rel="prev">
                     <span>Previous</span>
                     Personal essay.
                   </a>
                 </div>
                 <div class="next-nav">
-                  <a href="刻板与偏见.html" rel="next">
+                  <a href="index.html" rel="next">
                     <span>Go to the Next</span>
                     Personal essay.
                   </a>
